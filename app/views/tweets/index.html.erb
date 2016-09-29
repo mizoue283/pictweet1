@@ -1,0 +1,13 @@
+
+
+
+
+<div class="contents row" >
+  <% @tweets.each do |tweet| %>
+      <div class="content_post" style="background-image: url(<%= tweet.image %>);">
+        <%= simple_format(tweet.text) %>
+        <span class="name" ><%= tweet.name %></span>
+      </div>
+  <% end %>
+  <%= paginate(@tweets) %>
+</div>

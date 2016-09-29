@@ -1,0 +1,26 @@
+<%=@menber_id %>
+<%=  current_user.id %>
+<% if current_user.id.to_i == @menber_id.to_i %>　<%#もし要求されたページが自分のidと同じ時、マイページを表示する%>
+    <div class="contents row" >
+      <p><%= @nickname %>さんの投稿一覧</p>
+      <% @tweets.each do |tweet| %>
+          <div class="content_post" style="background-image: url(<%= tweet.image %>);">
+            <%= simple_format(tweet.text) %>
+            <span class="name"><%= tweet.name %></span>
+          </div>
+      <% end %>
+      <%= paginate(@tweets) %>
+    </div>
+<% else %>
+    <div class="contents row" >
+      <p><%= @menber_nickname %>さんの投稿一覧</p>
+      <% @menber_tweets.each do |tweet| %>
+          <div class="content_post" style="background-image: url(<%= tweet.image %>);">
+            <%= simple_format(tweet.text) %>
+            <span class="name"><%= tweet.name %></span>
+          </div>
+      <% end %>
+      <%= paginate(@menber_tweets) %>
+    </div>
+<% end %>
+
