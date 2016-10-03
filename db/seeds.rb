@@ -18,7 +18,8 @@ User.create!(nickname:  "Example User",
 
 
 99.times do |n|
-  name  = "example-#{n+1}"
+  string = "example-#{n+1}"
+  name  = string
   email = "example-#{n+1}@me.com"
   password = "password"
   User.create!(nickname: name,
