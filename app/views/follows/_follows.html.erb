@@ -1,23 +1,23 @@
 <div class="success">
 
 
-        <a href="/users/<%= tweet.id %>">
-          <span>投稿者</span><%= tweet.nickname %>
-        </a>
+  <a href="/users/<%= tweet.id %>">
+    <span>投稿者</span><%= tweet.nickname %>
+  </a>
 
 
   <%#フォローボタンを実装したかったが思わぬ不具合でできなかった（初めの表示はうまくいくがその後のクリックからの行こうがうまくいかない） %>
   <% if false %>
-  <%if user_signed_in?%>
-      <% @user = User.find(tweet.id) %>
-      <% unless current_user.id.to_i == tweet.id.to_i %>
-          <%#フォローしてるかしてないか、することもできるボタン %>
+      <% if user_signed_in? %>
+          <% @user = User.find(tweet.id) %>
+          <% unless current_user.id.to_i == tweet.id.to_i %>
+              <%#フォローしてるかしてないか、することもできるボタン %>
 
               <div id="follow_form">
                 <% if current_user.following?(@user) %>
                     <%#フォローボタン(フォローを外す)  %>
                     <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
-                                 html: { method: :delete },
+                                 html: {method: :delete},
                                  remote: true) do |f| %>
                         <%= f.submit "Unfollow", class: "btn" %>
                     <% end %>
@@ -31,14 +31,14 @@
                 <% end %>
               </div>
 
-      <% end%>
-  <% end %>
+          <% end %>
+      <% end %>
 
   <% end %>
-    <br>
-    自己紹介
-    <br>
-    <%= User.find(tweet.id).introduction%>
+  <br>
+  自己紹介
+  <br>
+  <%= User.find(tweet.id).introduction %>
 
 
 
