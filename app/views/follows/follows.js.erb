@@ -1,0 +1,1 @@
+$("#tweet").append("<div class='contents row'><%= escape_javascript(render('tweet', :locals => { :tweet => @tweets.each})) %></div>");

@@ -315,38 +315,6 @@ div.contents.row {
       }
     }
   }
-  form {
-    @include boxBase(20px 0 ,30px);
-    box-shadow: 0 0 10px rgba($black,0.2);
-    background-color: $white;
-    box-sizing: border-box;
-
-    h3 {
-      @include baseMargin(0 0 20px);
-      text-align: center;
-      font-weight: normal;
-      font-size: 20px;
-      color: $dark;
-    }
-    input,textarea {
-      width: 100%;
-      @include boxBase(5px 0 15px,10px);
-      border: 1px solid $gray;
-      border-radius: 5px;
-      font-family: "游ゴシック", "YuGothic";
-    }
-    input[type="submit"] {
-      @extend .transition;
-      background-color: $accent;
-      border-radius: 20px;
-      color: #fff;
-      border: 0;
-      font-size: 18px;
-      &:hover {
-        background-color: lighten($accent, 10%);
-      }
-    }
-  }
   .success {
     @include boxBase(20px 0 ,30px);
     box-shadow: 0 0 10px rgba($black,0.2);
@@ -358,10 +326,96 @@ div.contents.row {
     }
   }
 }
+form {
+  h3 {
+    @include baseMargin(0 0 20px);
+    text-align: center;
+    font-weight: normal;
+    font-size: 20px;
+    color: $dark;
+  }
+  input,textarea {
+    width: 100%;
+    @include boxBase(5px 0 15px,10px);
+    border: 1px solid $gray;
+    border-radius: 5px;
+    font-family: "游ゴシック", "YuGothic";
+  }
+  input[type="submit"] {
+    @extend .transition;
+    background-color: $accent;
+    border-radius: 20px;
+    color: #fff;
+    border: 0;
+    font-size: 18px;
+    &:hover {
+      background-color: lighten($accent, 10%);
+    }
+  }
+}
+.container {
+  @include boxBase(20px 0 ,30px);
+  box-shadow: 0 0 10px rgba($black,0.2);
+  background-color: $white;
+  box-sizing: border-box;
+}
+.comments {
+  padding: 5px;
+  margin-top: 15px;
+  a {
+    color: $accent;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
 footer {
   @include boxBase;
   color: $gray;
   p {
     text-align: center;
   }
+}
+
+
+
+
+
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid ;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    margin: 1px 1px;
+  }
+  a {
+    padding: 0;
+  }
+}
+
+.users.follow {
+  padding: 0;
 }

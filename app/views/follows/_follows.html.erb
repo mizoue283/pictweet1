@@ -1,0 +1,63 @@
+<div class="success">
+
+
+        <a href="/users/<%= tweet.id %>">
+          <span>投稿者</span><%= tweet.nickname %>
+        </a>
+
+
+  <%#フォローボタンを実装したかったが思わぬ不具合でできなかった（初めの表示はうまくいくがその後のクリックからの行こうがうまくいかない） %>
+  <% if false %>
+  <%if user_signed_in?%>
+      <% @user = User.find(tweet.id) %>
+      <% unless current_user.id.to_i == tweet.id.to_i %>
+          <%#フォローしてるかしてないか、することもできるボタン %>
+
+              <div id="follow_form">
+                <% if current_user.following?(@user) %>
+                    <%#フォローボタン(フォローを外す)  %>
+                    <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
+                                 html: { method: :delete },
+                                 remote: true) do |f| %>
+                        <%= f.submit "Unfollow", class: "btn" %>
+                    <% end %>
+
+                <% else %>
+                    <%#フォローボタン(フォローする)%>
+                    <%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
+                        <div><%= hidden_field_tag :followed_id, @user.id %></div>
+                        <%= f.submit "Follow", class: "btn btn-primary" %>
+                    <% end %>
+                <% end %>
+              </div>
+
+      <% end%>
+  <% end %>
+
+  <% end %>
+    <br>
+    自己紹介
+    <br>
+    <%= User.find(tweet.id).introduction%>
+
+
+
+  <%#フォロワーの表示 %>
+  <% @user = User.find(tweet.id) %>
+  <div class="stats">
+    <a href="<%= following_user_path(@user) %>">
+      <strong id="following" class="stat">
+        <%= @user.following.count %>
+      </strong>
+      following
+    </a>
+    <a href="<%= followers_user_path(@user) %>">
+      <strong id="followers" class="stat">
+        <%= @user.followers.count %>
+      </strong>
+      followers
+    </a>
+  </div>
+</div>
+
+

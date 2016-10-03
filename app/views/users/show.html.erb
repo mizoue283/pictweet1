@@ -1,26 +1,98 @@
-<%=@menber_id %>
-<%=  current_user.id %>
-<% if current_user.id.to_i == @menber_id.to_i %>　<%#もし要求されたページが自分のidと同じ時、マイページを表示する！%>
+<div class="contents row" >
+  <div class="success">
     <div class="contents row" >
-      <p><%= @nickname %>さんの投稿一覧</p>
-      <% @tweets.each do |tweet| %>
-          <div class="content_post" style="background-image: url(<%= tweet.image %>);">
-            <%= simple_format(tweet.text) %>
-            <span class="name"><%= tweet.name %></span>
-          </div>
-      <% end %>
-      <%= paginate(@tweets) %>
+      トップ画像
     </div>
-<% else %>
+
+    <div class="success">
+      自己紹介
+      <br>
+      <%= User.find(@menber_id).introduction%>
+
+
+    </div>
+
+
+    <%#フォロー・フォロワー表示%>
+    <section class="stats">
+      <%= render 'followsmain' %>
+     </section>
+
+  </div>
+
+<div class="contents row" >
+  登録日
+  <%= User.find(@menber_id).current_sign_in_at%>
+</div>
+  <%if user_signed_in?%>
+    <% unless current_user.id.to_i == @menber_id.to_i %>
+    <%#フォローしてるかしてないか、することもできるボタン %>
+      <%= render 'follow_form' if user_signed_in? %>
+     <% end%>
+  <% end %>
+
+
+  <%#サインインしているか %>
+  <%if user_signed_in?%>
+      <%#そのページが自分のか否か%>
+      <% if current_user.id.to_i == @menber_id.to_i %>　<%#もし要求されたページが自分のidと同じ時、マイページを表示する！%>
+        <div id = "tweet">
+
+        <div class="contents row" >
+          <p><%= @nickname %>さんの投稿一覧</p>
+          <% @tweets.each do |tweet| %>
+              <%#タイムライン%>
+              <%= render partial: "show", locals: { tweet: tweet } %>
+          <% end %>
+
+       </div>
+       </div>
+        <%= paginate(@tweets) %>
+      <% else%>
+          <div id = "tweet">
+
+            <div class="contents row" >
+              <p><%= @menber_nickname %>さんの投稿一覧</p>
+              <% @menber_tweets.each do |tweet| %>
+                  <%#タイムライン%>
+                  <%= render partial: "show", locals: { tweet: tweet } %>
+              <% end %>
+
+            </div>
+          </div>
+          <%= paginate(@menber_tweets) %>
+      <% end%>
+  <%#サインインしてないならこちら %>
+  <% else %>
+    <div id = "tweet">
+
     <div class="contents row" >
       <p><%= @menber_nickname %>さんの投稿一覧</p>
       <% @menber_tweets.each do |tweet| %>
-          <div class="content_post" style="background-image: url(<%= tweet.image %>);">
-            <%= simple_format(tweet.text) %>
-            <span class="name"><%= tweet.name %></span>
-          </div>
+          <%#タイムライン%>
+          <%= render partial: "show", locals: { tweet: tweet } %>
       <% end %>
-      <%= paginate(@menber_tweets) %>
-    </div>
-<% end %>
 
+    </div>
+    </div>
+    <%= paginate(@menber_tweets) %>
+  <% end %>
+
+
+
+
+
+<script>
+  $("#tweet .contents").infinitescroll({
+    loading: {
+      img:     "http://loadinggif.com/images/image-selection/17.gif",
+      msgText: "loading..."
+    },
+    navSelector: "nav.pagination",
+    nextSelector: "nav.pagination a[rel=next]",
+    itemSelector: "#tweet div.content_post" /* このDOMに差し掛かった時に、次のページのロードが始まる*/
+  });
+</script>
+
+
+</div>

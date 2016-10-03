@@ -1,0 +1,26 @@
+<div class="content_post" style="background-image: url(<%= tweet.image %>);">
+  <%#削除や詳細のたぶ%>
+  <div class="more">
+    <span><%= image_tag 'arrow_top.png' %></span>
+    <ul class="more_list">
+      <li>
+        <%= link_to '詳細', "/tweets/#{tweet.id}", method: :get %>
+      </li>
+      <%#ログインしている人だけが消せる%>
+      <% if user_signed_in? && current_user.id == tweet.user_id %>
+          <li>
+            <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
+          </li>
+      <% end %>
+    </ul>
+  </div>
+<%#内容%>
+  <%= simple_format(tweet.text) %>
+  <span class="name">
+        <a href="/users/<%= tweet.user_id %>">
+          <span>投稿者</span><%= tweet.user.nickname %>
+        </a>
+        </span>
+</div>
+
+

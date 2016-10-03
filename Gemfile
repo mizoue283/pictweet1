@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use mysql as the database for Active Record
@@ -55,3 +54,8 @@ gem 'kaminari'
 #タイムラインを５つ表示にする
 gem 'devise'
 #ログイン機能を付随する
+gem 'jquery-turbolinks'
+gem 'compass'
+
+
+
