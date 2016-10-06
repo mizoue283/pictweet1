@@ -28,7 +28,15 @@ User.create!(nickname:  "Example User",
                password_confirmation: password,
                introduction:"私の名前は#{name}です　よろしくね。趣味はジャズでトランペットをしてるよ",
                current_sign_in_ip: Time.zone.now)
+  Tweet.create!(text: "今日も疲れました",
+                user_id:"#{n+1}"
+
+
+  )
 end
+
+
+
 
 #ランダムに作る
 # リレーションシップ

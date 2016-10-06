@@ -16,7 +16,7 @@
 @import url(http://fonts.googleapis.com/css?family=Unica+One);
 
 $accent: #57C3E9;
-$black: #292929;
+$black: #2d3d3a;
 $dark: #666;
 $darkGray: #999999;
 $gray: #D8D8D8;
@@ -226,7 +226,7 @@ div.contents.row {
   div.content_post {
     @include boxBase(20px 0 ,30px);
     position: relative;
-    height: 400px;
+    height: 150px;
     color: #fff;
     background-size: cover;
     background-position: center center;
@@ -240,7 +240,7 @@ div.contents.row {
       left: 0;
       right: 0;
       @include filter-gradient(#000000, #a60000, vertical);
-      @include background-image(linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 62%,rgba(0,0,0,0.85) 100%));
+      @include background-image(linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 62%, rgba(242, 244, 247, 0.85) 100%));
       z-index: 1;
       border-radius: 3px;
     }
