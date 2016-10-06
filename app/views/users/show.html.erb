@@ -25,6 +25,8 @@
     登録日
     <%= User.find(@menber_id).current_sign_in_at %>
   </div>
+
+<div class="contents row">
   <% if user_signed_in? %>
       <% unless current_user.id.to_i == @menber_id.to_i %>
           <%#フォローしてるかしてないか、することもできるボタン %>
@@ -32,7 +34,7 @@
       <% end %>
   <% end %>
 
-
+</div>
   <%#サインインしているか %>
   <% if user_signed_in? %>
       <%#そのページが自分のか否か%>
