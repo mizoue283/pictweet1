@@ -10,7 +10,7 @@ set :branch, 'master'
 # # deploy先のディレクトリに変更してください
 set :deploy_to, -> { "/var/www/#{fetch(:application)}" }
 
-# # シンボリックリンクをはるファイル。(※後述)# set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
+# シンボリックリンクをはるファイル。(※後述)# set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
 #
 # # シンボリックリンクをはるフォルダ。(※後述)
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
