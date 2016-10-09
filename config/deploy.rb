@@ -6,6 +6,9 @@ set :repo_url, 'https://github.com/TomoyukiYamada85/pictweet1.git'
 # deployするブランチ。デフォルトはmasterなのでなくても可。
  set :branch, 'master'
 
+set :password, ask('Server password', nil)
+server 'server.domain.com', user: 'ssh_user_name', port: 22, password: fetch(:password), roles: %w{web app db}
+
 # # deploy先のディレクトリに変更してください
  set :deploy_to, '/var/www/sample'
 #
@@ -17,12 +20,12 @@ set :repo_url, 'https://github.com/TomoyukiYamada85/pictweet1.git'
 # # 保持するバージョンの個数(※後述)
  set :keep_releases, 5
 #
-# # rubyのバージョン# set :rbenv_ruby, '2.1.3'
+ set :rbenv_ruby, '2.1.3'
 #
 # #出力するログのレベル。
  set :log_level, :debug
 
-# namespace :deploy do
+ namespace :deploy do
    desc 'Restart application'
      task :restart do
          invoke 'unicorn:restart'
@@ -53,7 +56,12 @@ set :repo_url, 'https://github.com/TomoyukiYamada85/pictweet1.git'
 
  	     after :restart, :clear_cache do
  	         on roles(:web), in: :groups, limit: 3, wait: 10 do
- 	             end
- 	             
- 	             end
- 	          end                                      
+ 	         end
+ 	     end 
+	end 
+
+
+
+set :ssh_options, {
+   config: false
+}                                   
