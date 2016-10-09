@@ -6,8 +6,6 @@ set :repo_url, 'https://github.com/TomoyukiYamada85/pictweet1.git'
 # deployするブランチ。デフォルトはmasterなのでなくても可。
  set :branch, 'master'
 
-set :password, ask('Server password', nil)
-server 'server.domain.com', user: 'ssh_user_name', port: 22, password: fetch(:password), roles: %w{web app db}
 
 # # deploy先のディレクトリに変更してください
  set :deploy_to, '/var/www/sample'
