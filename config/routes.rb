@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get   'users/:id'   =>  'users#show'    #Mypage,個々のページへのルーティング
   delete  'tweets/:id'  => 'tweets#destroy'#ツイート削除
   get 'mypage/:id' => 'mypage#changeID'#登録情報変更
-  get 'tweets/:id' => 'tweets#show'       #ツイート詳細画面
+  get 'tweets/:id' => 'comments#show'       #ツイート詳細画面
   get 'users/:id/following' => 'follows#following'
   get 'users/:id/followers' => 'follows#followers'
   #コメント
