@@ -1,0 +1,58 @@
+<div class="contents row" >
+  <a href="/tweets/<%=@tweet.id%>">
+  <div class="content_post" style="background-image: url(<%= @tweet.image %>);">
+    <%#削除や詳細のたぶ%>
+    <div class="more">
+      <span><%= image_tag 'arrow_top.png' %></span>
+      <ul class="more_list">
+        <li>
+          <%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %>
+        </li>
+        <%#ログインしている人だけが消せる%>
+        <% if user_signed_in? && current_user.id == @tweet.user_id %>
+            <li>
+              <%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+    <%= simple_format(@tweet.text) %>
+    <span class="name">
+      <a href="/users/<%= @tweet.user.id %>">
+        <span>投稿者</span><%= @tweet.user.nickname %>
+      </a>
+    </span>
+
+  </div>
+  </a>
+
+  <!-- ここからフォーム -->
+  <% if current_user %>
+  <div class="container">
+
+        <%= form_tag("/tweets/#{@tweet.id}/comments", method: :post) do %>
+            <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
+            <input type="submit" value="SENT">
+        <% end %>
+
+  </div>
+  <% end %>
+
+
+  <div class="container" >
+
+
+    <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% if @comments %>
+          <% @comments.each do |comment| %>
+              <p>
+                <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+                <%= comment.text %>
+              <p style=“text-align:right”><%= comment.created_at %></p>
+              </p>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
