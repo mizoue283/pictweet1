@@ -1,13 +1,13 @@
 class MypageController < ApplicationController
 
 
-  before_action :mypage_only_one,   except: :users
-  def changeID
-    @myID = params['id']
+  before_action :mypage_only_one,   only: [:changeID, :changedID, :mypage_params]
+      def changeID
+    @myID = current_user.id.to_i
 
 
-    @change_nickname = User.find(params['id']).nickname
-    @change_introduction = User.find(params['id']).introduction
+    @change_nickname = User.find(current_user.id.to_i).nickname
+    @change_introduction = User.find(current_user.id.to_i).introduction
 
 
   end
@@ -21,11 +21,14 @@ class MypageController < ApplicationController
   end
 
   def mypage_only_one
-    redirect_to action: :users unless user_signed_in? && current_user.id.to_i != params['id']
+    redirect_to action: :error unless user_signed_in?
 
   end
 
+  def error
 
+
+  end
 
   private
   def mypage_params

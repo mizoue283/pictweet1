@@ -1,7 +1,9 @@
 <div class="contents row">
-  <div class="success">
+  <div class="white_box">
     <div class="col-md-8">
-      <h3><%= @title %></h3>
+      <div class="center_box">
+        <h3><%= @title %></h3>
+      </div>
       <div id="tweet">
         <div class="contents row">
           <ul class="users follow">
@@ -12,6 +14,7 @@
           </ul>
         </div>
       </div>
+
       <%= paginate(@following_users) %>
 
       <script>
@@ -28,8 +31,8 @@
 
 
     </div>
+    <div class="center_box">
     <a class="btn" href="/users/<%= @menber_id.to_i %>">投稿一覧へ戻る</a>
+    </div>
   </div>
-
-
 </div>

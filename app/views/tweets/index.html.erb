@@ -1,6 +1,6 @@
 
 <div class="contents row">
-
+  <div class="white_box">
 
   <div id="tweet">
     <div class="contents row">
@@ -20,8 +20,8 @@
       <% end %>
     </div>
   </div>
+    <div class="center_box">
   <%= paginate(@tweets) %>
-
   <script>
     $("#tweet .contents").infinitescroll({
       loading: {
@@ -34,5 +34,7 @@
     });
   </script>
 
-
+  <a class="btn" href="/">TOPへ戻る</a>
+      </div>
+  </div>
 </div>
