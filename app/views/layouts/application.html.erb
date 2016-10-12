@@ -40,7 +40,7 @@
               <li>
                 <a href="/users/<%= current_user.id %>">マイページ</a>
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-                <a> 登録情報変更</a>
+                <a href="/mypage/<%= current_user.id %>">登録情報変更</a>
               </li>
             </ul>
           </span>
