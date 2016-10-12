@@ -1,10 +1,14 @@
 <div class="contents row">
-  <div class="success">
-    <h3>
-      変更が完了しました。
-    </h3>
-    <a class="btn" href="/users/<%= current_user.id %>">mypageへ戻る</a>
-    <a class="btn" href="/tweets">投稿一覧へ戻る</a>
-
+  <div class="container">
+    <%= form_tag("mypage/#{@myID}", method: :post) do %>
+        <h3>
+          登録情報変更
+        </h3>
+        <a>ニックネーム</a>
+        <input value="<%=@change_nickname%>" type="text" name="nickname">
+        <a>自己紹介</a>
+        <textarea cols="30" name="text" rows="10"><%=@change_introduction%></textarea>
+        <input type="submit" value="SENT">
+    <% end %>
   </div>
 </div>

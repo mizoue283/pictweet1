@@ -6,10 +6,12 @@ Rails.application.routes.draw do
   post  'tweets'      =>  'tweets#create' #ツイート投稿機能
   get   'users/:id'   =>  'users#show'    #Mypage,個々のページへのルーティング
   delete  'tweets/:id'  => 'tweets#destroy'#ツイート削除
-  get 'mypage/:id' => 'mypage#changeID'#登録情報変更
+
   get 'tweets/:id' => 'comments#show'       #ツイート詳細画面
   get 'users/:id/following' => 'follows#following'
   get 'users/:id/followers' => 'follows#followers'
+  get 'mypage/:id' => 'mypage#changeID'#登録情報変更
+  post 'mypage/mypage/:id' => 'mypage#changedID'#登録情報変更済み
   #コメント
   resources :tweets do
     resources :comments, only: [:create]
