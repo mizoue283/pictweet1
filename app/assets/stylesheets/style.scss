@@ -241,7 +241,7 @@ div.contents.row {
   div.content_post {
     @include boxBase(20px 0 ,30px);
     position: relative;
-    height: 150px;
+    //height: 150px;
 
     color: #292f36;
     background-size: cover;
@@ -504,16 +504,38 @@ footer {
   position: absolute;
 }
 .tweet_style{
+
   word-wrap:break-word;
   white-space: normal;
   display: block;
-  width: auto;
+  width: 70%;
 }
-.box_link a{
-  width: 100%;
-  display:block;
-   &:hover{
-   opacity: 0.25;  /* 要素を透明にするタグ */
-   background-color: #E6EBE0;
+
+.box_link{
+
+    width: 100%;
+    display:block;
+    &:hover{
+      opacity: 0.25;  /* 要素を透明にするタグ */
+      background-color: #E6EBE0;
+      box-shadow: 0 0 10px rgba($black,0.2);
+      border-color: rgb(75, 94, 102);
     }
+}
+
+.manga_img_ls{
+
+  width: 112px;
+  height: 174px;
+}
+.manga_img_ps{
+  right: 10px;
+  padding: 20px;
+  width: 150px;
+  margin: 0;
+
+}
+
+.text_float{
+  float : right;
 }

@@ -6,11 +6,11 @@ class TweetsController < ApplicationController
 
   def index
     #全体のタイムラインを表示
-    @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(5)
+    @tweets = Tweet.includes(:user).order("created_at DESC").page(params[:page]).per(10)
 
     #自身がフォローしている人だけのタイムラインの表示
     if user_signed_in?
-      @tweet_login = Tweet.where(user_id: current_user.following).order("created_at DESC").page(params[:page]).per(5)
+      @tweet_login = Tweet.where(user_id: current_user.following).order("created_at DESC").page(params[:page]).per(10)
     end
     #allあってもなくても良い
     #ASC(昇順)とDESC(降順)

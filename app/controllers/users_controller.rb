@@ -5,9 +5,9 @@ class UsersController < ApplicationController
   def show
     user = User.find(params[:id])
     @nickname = user.nickname
-    @tweets = user.tweets.page(params[:page]).per(5).order("created_at DESC")
+    @tweets = user.tweets.page(params[:page]).per(10).order("created_at DESC")
     @menber_id = params['id']
-    @menber_tweets =Tweet.where(user_id: params['id']).order("created_at DESC").page(params[:page]).per(5)
+    @menber_tweets =Tweet.where(user_id: params['id']).order("created_at DESC").page(params[:page]).per(10)
     @menber_nickname = User.find(params['id']).nickname
 
     def correct_user
