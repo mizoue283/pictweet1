@@ -242,7 +242,8 @@ div.contents.row {
     @include boxBase(20px 0 ,30px);
     position: relative;
     height: 150px;
-    color: #fff;
+
+    color: #292f36;
     background-size: cover;
     background-position: center center;
     border-radius: 3px;
@@ -300,15 +301,15 @@ div.contents.row {
     }
     p {
       @extend .serif;
-      position: absolute;
+      margin-right: 100px;
       left: 30px;
-      right: 100px;
+      right: 150px;
       bottom: 30px;
-      margin: 0;
-      font-size: 20px;
+
+      font-size: 15px;
       z-index: 2;
       font-weight: bold;
-      text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
+      //text-shadow: 0 0 2px #000, 0 0 1px #000, 0 0 1px #000;
     }
     span.name {
       position: absolute;
@@ -459,6 +460,8 @@ footer {
   padding: 0;
 }
 
+
+//ここから
 .prof_image_sml{
 
   background-color: #fff;
@@ -484,4 +487,21 @@ footer {
 .aLL_margin{
 
   margin: 0 .3rem;
+}
+
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.tweet_style{
+  word-wrap:break-word;
+  white-space: normal;
+  display: block;
+  width: auto;
+}
+.box_link a{
+  width: 100%;
+  display:block;
 }

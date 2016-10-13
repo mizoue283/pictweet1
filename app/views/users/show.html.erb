@@ -36,6 +36,8 @@
   <% end %>
 
 </div>
+<div class="contents row">
+<div class="white_box">
   <%#サインインしているか %>
   <% if user_signed_in? %>
       <%#そのページが自分のか否か%>
@@ -43,7 +45,7 @@
           <div id="tweet">
 
             <div class="contents row">
-              <p><%= @nickname %>さんの投稿一覧</p>
+              <p style="padding-left: 25px;"><%= @nickname %>さんの投稿一覧</p>
               <% @tweets.each do |tweet| %>
                   <%#タイムライン%>
                   <%= render partial: "show", locals: {tweet: tweet} %>
@@ -56,7 +58,7 @@
           <div id="tweet">
 
             <div class="contents row">
-              <p><%= @menber_nickname %>さんの投稿一覧</p>
+              <p style="padding-left: 25px;"><%= @nickname %>さんの投稿一覧</p>
               <% @menber_tweets.each do |tweet| %>
                   <%#タイムライン%>
                   <%= render partial: "show", locals: {tweet: tweet} %>
@@ -71,7 +73,7 @@
       <div id="tweet">
 
         <div class="contents row">
-          <p><%= @menber_nickname %>さんの投稿一覧</p>
+          <p style="padding-left: 25px;"><%= @nickname %>さんの投稿一覧</p>
           <% @menber_tweets.each do |tweet| %>
               <%#タイムライン%>
               <%= render partial: "show", locals: {tweet: tweet} %>
@@ -81,8 +83,8 @@
       </div>
       <%= paginate(@menber_tweets) %>
   <% end %>
-
-
+</div>
+</div>
 
 
 

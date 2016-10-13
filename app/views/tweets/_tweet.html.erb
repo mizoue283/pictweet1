@@ -1,6 +1,4 @@
 <div class="content_post"  >
-  <a href="/tweets/<%=tweet.id%>">
-
 
 
   <div class = "" style="background-image: url(<%= tweet.image %>)";> </div>
@@ -23,7 +21,12 @@
     </ul>
   </div>
 <%#内容%>
-  <%= simple_format(tweet.text) %>
+    <div class="tweet_style box_link">
+      <a href="/tweets/<%=tweet.id%>">
+
+      <%= simple_format(tweet.text) %>
+        </a>
+    </div>
   <span class="name">
 
         <a class="time_line_prof" href = "/users/<%= tweet.user_id %>" tabindex="-1" aria-hidden="true">
@@ -33,7 +36,7 @@
           <%= tweet.user.nickname %>
         </a>
         </span>
-    </a>
+
 </div>
 
 
