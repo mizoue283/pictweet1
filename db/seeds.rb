@@ -14,6 +14,7 @@ User.create!(nickname:  "Example User",
              password:              "foobar",
              password_confirmation: "foobar",
              introduction:"私の名前は練です　よろしくね。趣味はジャズでトランペットをしてるよ",
+             prof_img:"https://pbs.twimg.com/profile_images/785517754753265665/A3nbsI9u_reasonably_small.jpg",
              current_sign_in_ip: Time.zone.now)
 
 
@@ -27,8 +28,9 @@ User.create!(nickname:  "Example User",
                password:              password,
                password_confirmation: password,
                introduction:"私の名前は#{name}です　よろしくね。趣味はジャズでトランペットをしてるよ",
+               prof_img:"https://pbs.twimg.com/profile_images/785517754753265665/A3nbsI9u_reasonably_small.jpg",
                current_sign_in_ip: Time.zone.now)
-  Tweet.create!(text: "今日も疲れました",
+  Tweet.create!(text: "今度は、作成した、tagカラムを削除します。一般にカラムを削除するには下のコマンドを実行します。",
                 user_id:"#{n+1}"
 
 

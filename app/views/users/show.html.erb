@@ -1,7 +1,15 @@
 <div class="contents row">
   <div class="success">
     <div class="contents row">
-      トップ画像
+      <span class="name">
+
+        <a class="time_line_prof" href = "/users/<%= @menber_id %>" tabindex="-1" aria-hidden="true">
+          <img alt="<%= User.find(@menber_id).nickname %>"class="prof_image_xl" src="<%=  User.find(@menber_id).prof_img%>">
+        </a>
+        <a>
+          <%= User.find(@menber_id).nickname %>
+        </a>
+      </span>
     </div>
 	</div>
 
@@ -36,6 +44,8 @@
   <% end %>
 
 </div>
+<div class="contents row">
+<div class="white_box">
   <%#サインインしているか %>
   <% if user_signed_in? %>
       <%#そのページが自分のか否か%>
@@ -43,7 +53,7 @@
           <div id="tweet">
 
             <div class="contents row">
-              <p><%= @nickname %>さんの投稿一覧</p>
+              <p style="padding-left: 25px;"><%= @nickname %>さんの投稿一覧</p>
               <% @tweets.each do |tweet| %>
                   <%#タイムライン%>
                   <%= render partial: "show", locals: {tweet: tweet} %>
@@ -56,7 +66,7 @@
           <div id="tweet">
 
             <div class="contents row">
-              <p><%= @menber_nickname %>さんの投稿一覧</p>
+              <p style="padding-left: 25px;"><%= @nickname %>さんの投稿一覧</p>
               <% @menber_tweets.each do |tweet| %>
                   <%#タイムライン%>
                   <%= render partial: "show", locals: {tweet: tweet} %>
@@ -71,7 +81,7 @@
       <div id="tweet">
 
         <div class="contents row">
-          <p><%= @menber_nickname %>さんの投稿一覧</p>
+          <p style="padding-left: 25px;"><%= @nickname %>さんの投稿一覧</p>
           <% @menber_tweets.each do |tweet| %>
               <%#タイムライン%>
               <%= render partial: "show", locals: {tweet: tweet} %>
@@ -81,8 +91,8 @@
       </div>
       <%= paginate(@menber_tweets) %>
   <% end %>
-
-
+</div>
+</div>
 
 
 

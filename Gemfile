@@ -61,7 +61,3 @@ gem 'jquery-turbolinks'
 gem 'compass'
 
 gem "net-ssh"
-
-
-
-
