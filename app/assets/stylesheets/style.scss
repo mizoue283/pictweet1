@@ -472,6 +472,14 @@ footer {
   width: 46.63px;
   height: 46.63px;
 }
+.prof_image_xl{
+  background-color: #fff;
+  border-radius: .35rem;
+  min-height: 0;
+  width: 120px;
+  height: 120px;
+
+}
 .time_line_prof{
 
 
@@ -504,4 +512,8 @@ footer {
 .box_link a{
   width: 100%;
   display:block;
+   &:hover{
+   opacity: 0.25;  /* 要素を透明にするタグ */
+   background-color: #E6EBE0;
+    }
 }

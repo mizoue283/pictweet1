@@ -1,7 +1,15 @@
 <div class="contents row">
   <div class="success">
     <div class="contents row">
-      トップ画像
+      <span class="name">
+
+        <a class="time_line_prof" href = "/users/<%= @menber_id %>" tabindex="-1" aria-hidden="true">
+          <img alt="<%= User.find(@menber_id).nickname %>"class="prof_image_xl" src="<%=  User.find(@menber_id).prof_img%>">
+        </a>
+        <a>
+          <%= User.find(@menber_id).nickname %>
+        </a>
+      </span>
     </div>
 	</div>
 
