@@ -8,7 +8,7 @@ class MypageController < ApplicationController
 
     @change_nickname = User.find(current_user.id.to_i).nickname
     @change_introduction = User.find(current_user.id.to_i).introduction
-
+    @change_prof_img = User.find(current_user.id.to_i).prof_img
 
   end
 
@@ -16,6 +16,7 @@ class MypageController < ApplicationController
     @user = User.find(current_user.id)
     @user.nickname = mypage_params[:nickname]
     @user.introduction = mypage_params[:text]
+    @user.prof_img = mypage_params[:prof_img]
     @user.save
 
   end
@@ -32,7 +33,7 @@ class MypageController < ApplicationController
 
   private
   def mypage_params
-    params.permit(:nickname, :text)
+    params.permit(:nickname, :text,:prof_img)
   end
 end
 
