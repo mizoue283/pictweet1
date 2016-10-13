@@ -25,8 +25,12 @@
 <%#内容%>
   <%= simple_format(tweet.text) %>
   <span class="name">
+
+        <a class="time_line_prof" href = "/users/<%= tweet.user_id %>" tabindex="-1" aria-hidden="true">
+          <img alt="<%= tweet.user.nickname %>"class="prof_image_sml" src="<%=  tweet.user.prof_img%>"></a>
         <a href="/users/<%= tweet.user_id %>">
-          <span>投稿者</span><%= tweet.user.nickname %>
+
+          <%= tweet.user.nickname %>
         </a>
         </span>
     </a>

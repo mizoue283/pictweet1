@@ -14,6 +14,7 @@ User.create!(nickname:  "Example User",
              password:              "foobar",
              password_confirmation: "foobar",
              introduction:"私の名前は練です　よろしくね。趣味はジャズでトランペットをしてるよ",
+             prof_img:"https://pbs.twimg.com/profile_images/785517754753265665/A3nbsI9u_reasonably_small.jpg",
              current_sign_in_ip: Time.zone.now)
 
 
@@ -27,6 +28,7 @@ User.create!(nickname:  "Example User",
                password:              password,
                password_confirmation: password,
                introduction:"私の名前は#{name}です　よろしくね。趣味はジャズでトランペットをしてるよ",
+               prof_img:"https://pbs.twimg.com/profile_images/785517754753265665/A3nbsI9u_reasonably_small.jpg",
                current_sign_in_ip: Time.zone.now)
   Tweet.create!(text: "今日も疲れました",
                 user_id:"#{n+1}"

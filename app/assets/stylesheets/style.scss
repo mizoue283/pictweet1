@@ -461,5 +461,27 @@ footer {
 
 .prof_image_sml{
 
+  background-color: #fff;
+  border: 0;
+  border-radius: .35rem;
+  display: block;
+  min-height: 0;
+  width: 46.63px;
+  height: 46.63px;
+}
+.time_line_prof{
 
+
+  display: block;
+  flex-shrink: 1;
+  flex-grow: 0;
+  align-items: stretch;
+  border-width: 0;
+  border-style: solid;
+  box-sizing: border-box;
+}
+
+.aLL_margin{
+
+  margin: 0 .3rem;
 }
