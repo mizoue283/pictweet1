@@ -415,8 +415,8 @@ footer {
 
 .stats {
   overflow: auto;
-  margin-top: 0;
-  padding: 0;
+  margin-top: 3px;
+  padding: 3px;
   a {
     float: left;
     padding: 0 10px;
@@ -425,10 +425,18 @@ footer {
     &:first-child {
       padding-left: 0;
       border: 0;
+      &:hover {
+        padding-left: 10px;
+        border: 0;
+      }
+
     }
     &:hover {
       text-decoration: none;
-      color: blue;
+      color: #f9f9ff;
+      background-color: #999999;
+      border-left: 3px solid ;
+      border-radius: 5px;
     }
   }
   strong {
@@ -449,4 +457,9 @@ footer {
 
 .users.follow {
   padding: 0;
+}
+
+.prof_image_sml{
+
+
 }
