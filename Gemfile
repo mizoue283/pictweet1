@@ -61,5 +61,3 @@ gem 'jquery-turbolinks'
 gem 'compass'
 
 gem "net-ssh"
-gem 'bootstrap', '~> 4.0.0.alpha4'
-gem 'sass'
