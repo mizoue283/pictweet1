@@ -122,6 +122,8 @@ h1,h2,h3,h4,h5,h6 {
   }
 }
 
+$break-small: 480px;
+$break-large: 1000px;
 
 header.header {
   @include basePadding;
@@ -152,62 +154,168 @@ header.header {
       //noinspection CssInvalidPropertyValue
 
       a.post {
-        @extend .btn;
+        //@extend .btn;
+        @include basePadding(8px 20px);
+        font-size: 14px;
+        border: 2px solid $accent;
+        color: $accent;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 3px;
+        display: inline-block;
         width: 120px;
         display: inline-left;
         margin-left: 10px;
         &:hover {
-
+          border-color: rgb(162, 201, 222);
           color: #ffffff;
-          background-color:rgb(116, 120, 123);}
-      }
-    }
-  }
-  .user_nav {
-    position: relative;
-    height: 100px;
-    position: absolute;
-    right: 0;
-    span {
-      top: 5px;
-      display: block;
-      float: left;
-      margin-left: 30px;
-      width: 150px;
-      height: 50px;
-      font-size: 1em;
-      cursor: pointer;
-      position: relative;
-      &:after {
-        content: '▼';
-        font-size: .7em;
-        margin-left: -4px;
-      }
-      &:hover ul {
-        color: $accent;
-        display: block;
-      }
-    }
-    ul {
-      display: none;
-      position: absolute;
-      top: 46px;
-      right: 0;
-      border-left: 1px solid #d8d8d8;
-      border-right: 1px solid #d8d8d8;
-      box-shadow: 1px 2px 5px rgba(0,0,0,0.1);
-      li {
-        background-color: #f0f0f0;
-        a {
-          display: block;
-          padding: 10px 20px;
-          text-align: left;
-          border-bottom: 1px solid #d8d8d8;
+          background-color: #74787b;
         }
       }
-     }
+    }
+    .user_nav {
+      position: relative;
+      height: 100px;
+      position: absolute;
+      right: 0;
+      span {
+        top: 5px;
+        display: block;
+        float: left;
+        margin-left: 30px;
+        width: 150px;
+        height: 50px;
+        font-size: 1em;
+        cursor: pointer;
+        position: relative;
+        &:after {
+          content: '▼';
+          font-size: .7em;
+          margin-left: -4px;
+        }
+        &:hover ul {
+          color: $accent;
+          display: block;
+        }
+      }
+      ul {
+        display: none;
+        position: absolute;
+        top: 46px;
+        right: 0;
+        border-left: 1px solid #d8d8d8;
+        border-right: 1px solid #d8d8d8;
+        box-shadow: 1px 2px 5px rgba(0,0,0,0.1);
+        li {
+          background-color: #f0f0f0;
+          a {
+            display: block;
+            padding: 10px 20px;
+            text-align: left;
+            border-bottom: 1px solid #d8d8d8;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: $break-small) {
+
+    @include basePadding;
+    border-bottom: 1px solid $gray;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    div.header__bar.row {
+      position: relative;
+      h1.grid-6 {
+        font-size: 20px;
+        line-height: 41px;
+        float: left;
+        a {
+          display: block;
+          &:hover {
+
+            color: $accent;
+            background-color:#ffffff ;}
+        }
+      }
+      div.grid-6 {
+        float: right;
+        text-align: right;
+        //noinspection CssInvalidPropertyValue
+
+        a.post {
+          //@extend .btn;
+          @include basePadding(8px 20px);
+          font-size: 14px;
+          border: 2px solid $accent;
+          color: $accent;
+          font-weight: bold;
+          text-align: center;
+          border-radius: 3px;
+          display: inline-block;
+          width: 120px;
+          display: inline-left;
+          margin-left: 10px;
+          &:hover {
+            border-color: rgb(162, 201, 222);
+            color: #ffffff;
+            background-color: #74787b;
+          }
+        }
+      }
+      .user_nav {
+        position: relative;
+        height: 40px;
+        position: absolute;
+        right: 0;
+        span {
+          top: 5px;
+          display: block;
+          float: left;
+          margin-left: 30px;
+          width: 150px;
+          height: 50px;
+          font-size: 1em;
+          cursor: pointer;
+          position: relative;
+          &:after {
+            content: '▼';
+            font-size: .7em;
+            margin-left: -4px;
+          }
+          &:hover ul {
+            color: $accent;
+            display: block;
+          }
+        }
+        ul {
+          display: none;
+          position: absolute;
+          top: 46px;
+          right: 0;
+          border-left: 1px solid #d8d8d8;
+          border-right: 1px solid #d8d8d8;
+          box-shadow: 1px 2px 5px rgba(0,0,0,0.1);
+          li {
+            background-color: #f0f0f0;
+            a {
+              display: block;
+              padding: 10px 20px;
+              text-align: left;
+              border-bottom: 1px solid #d8d8d8;
+            }
+          }
+        }
+      }
+    }
+
   }
 }
+
 .form {
   background: url(https://dl.dropboxusercontent.com/u/5840617/DeathtoStock_Wired3.jpg);
   background-size: cover;
