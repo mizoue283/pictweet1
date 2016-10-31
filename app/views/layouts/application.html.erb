@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'jquery.infinitescroll', 'data-turbolinks-track' => true %>
-
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= csrf_meta_tags %>
   <script type="text/javascript">
     WebFontConfig = {
@@ -25,6 +25,7 @@
 
 <body>
 <header class="header">
+
   <div class="header__bar row">
 
     <h1 class="grid-6"><%= link_to 'Web_manga.com', "/", method: :get %></h1> <%#ホームに戻る%>
@@ -80,7 +81,7 @@
 
 <footer>
   <p>
-    Copyright PicTweet 2014.
+    Copyright PicTweet 2016.
   </p>
 </footer>
 </body>

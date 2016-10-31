@@ -1,30 +1,70 @@
 <div class="contents row" >
-  <a href="/tweets/<%=@tweet.id%>">
-  <div class="content_post" style="background-image: url(<%= @tweet.image %>);">
-    <%#削除や詳細のたぶ%>
-    <div class="more">
-      <span><%= image_tag 'arrow_top.png' %></span>
-      <ul class="more_list">
-        <li>
-          <%= link_to '編集', "/tweets/#{@tweet.id}/edit", method: :get %>
-        </li>
-        <%#ログインしている人だけが消せる%>
-        <% if user_signed_in? && current_user.id == @tweet.user_id %>
-            <li>
-              <%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %>
-            </li>
-        <% end %>
-      </ul>
-    </div>
-    <%= simple_format(@tweet.text) %>
-    <span class="name">
-      <a href="/users/<%= @tweet.user.id %>">
-        <span>投稿者</span><%= @tweet.user.nickname %>
-      </a>
-    </span>
 
-  </div>
-  </a>
+
+
+
+
+    <div class="content_post" >
+
+      <%#漫画画像%>
+      <%#内容%>
+      <div class="tweet_style text_float">
+        <a href="/tweets/<%=@tweet.id%>">
+
+          <%= simple_format(@tweet.text) %>
+        </a>
+      </div>
+<%#↑内容%>
+      <div class="manga_img_ps">
+        <a class="time_line_prof"  tabindex="-1" >
+          <img class="manga_img_ls" src="<%= @tweet.image %>"></a>
+        　　
+
+        <div class="">
+          <a>漫画の名前</a>
+        </div>
+
+      </div>
+
+      <%#内容%>
+
+<%#削除や詳細のたぶ%>
+      <div class="more" >
+        <span><%= image_tag 'arrow_top.png'%></span>
+        <ul class="more_list">
+          <li>
+            <%= link_to '詳細', "/tweets/#{@tweet.id}", method: :get %>
+          </li>
+          <%#ログインしている人だけが消せる%>
+          <% if user_signed_in? && current_user.id == @tweet.user_id %>
+              <li>
+                <%= link_to '削除', "/tweets/#{@tweet.id}", method: :delete %>
+              </li>
+          <% end %>
+        </ul>
+      </div>
+      <span class="name">
+
+        <a class="time_line_prof" href = "/users/<%= @tweet.user_id %>" tabindex="-1" aria-hidden="true">
+          <img alt="<%= @tweet.user.nickname %>"class="prof_image_sml" src="<%=  @tweet.user.prof_img%>"></a>
+        <a href="/users/<%= @tweet.user_id %>">
+
+          <%= @tweet.user.nickname %>
+        </a>
+  </span>
+
+
+
+      <%= @tweet.created_at %>
+
+    </div>
+
+
+
+
+
+
+
 
   <!-- ここからフォーム -->
   <% if current_user %>
