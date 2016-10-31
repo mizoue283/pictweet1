@@ -10,7 +10,7 @@ class TweetsController < ApplicationController
 
     #自身がフォローしている人だけのタイムラインの表示
     if user_signed_in?
-      @tweet_login = Tweet.where(user_id: current_user.following).order("created_at DESC").page(params[:page]).per(10)
+      @tweet_login = Tweet.where(user_id: current_user.following + current_user_id).order("created_at DESC").page(params[:page]).per(10)
     end
     #allあってもなくても良い
     #ASC(昇順)とDESC(降順)
